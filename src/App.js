@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Design from "./pages/Design";
+import Home from "./pages/Home";
+import HomeMap from "./pages/HomeMap";
+import Equipment from "./pages/Equipment";
+import Gnb from "./components/gnb";
+import Fotter from "./components/fotter";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import ContactForm from "./pages/Contact";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <BrowserRouter>
+        <Gnb />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/design" element={<Design />} />
+          <Route path="/map" element={<HomeMap />} />
+          <Route path="/equipment" element={<Equipment />} />
+          <Route path="/contact" element={<ContactForm />} />
+        </Routes>
+        <Fotter />
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 
